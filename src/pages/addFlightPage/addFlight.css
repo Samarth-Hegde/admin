@@ -1,0 +1,26 @@
+.flights-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  width: 50vw;
+}
+
+.addFlight-container {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-shadow: 7px 10px 17px 0px rgba(84, 83, 84, 1);
+  -moz-box-shadow: 7px 10px 17px 0px rgba(84, 83, 84, 1);
+  box-shadow: 7px 10px 17px 0px rgba(84, 83, 84, 1);
+  padding: 20px;
+}
+
+.flights-form-element {
+}
+
+p {
+  color: red;
+}
