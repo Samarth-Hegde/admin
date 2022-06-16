@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 function FlightCard(props) {
   const nav = useNavigate();
   return (
-    <Card sx={{ maxWidth: "100vw" }}>
+    <Card sx={{ maxWidth: "100vw", margin: 5 }}>
       <CardContent>
         <Typography
           sx={{ color: "#0b8f2c" }}

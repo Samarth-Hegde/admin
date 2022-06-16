@@ -21,12 +21,16 @@ function Homepage() {
       { onlyOnce: true }
     );
   }, []);
+
   const handleNav = () => {};
   return (
     <div className="flights-container">
       <div className="header">
         <p></p>
-        <Typography sx={{ textAlign: "center", margin: "50px" }} variant="h4">
+        <Typography
+          sx={{ textAlign: "center", margin: "100px", color: "white" }}
+          variant="h4"
+        >
           Flight List
         </Typography>
         <Button
@@ -43,7 +47,7 @@ function Homepage() {
           return (
             <FlightCard
               onClick={handleNav}
-              id = {id[index]}
+              id={id[index]}
               key={id[index]}
               flightDetails={flight}
             ></FlightCard>

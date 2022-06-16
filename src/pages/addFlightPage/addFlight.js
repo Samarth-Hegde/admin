@@ -42,6 +42,7 @@ function AddFlight() {
       console.log(validate_from());
       const databaseRef = ref(fireBaseDataBase, `flights`);
       await push(databaseRef, { ...flightDetails, occupancy: 10 });
+      alert("Flight Added");
     }
   };
 
@@ -96,7 +97,10 @@ function AddFlight() {
     <div className="wrapper">
       <div className="header">
         <p></p>
-        <Typography variant="h4" sx={{ textAlign: "center", margin: 3 }}>
+        <Typography
+          variant="h4"
+          sx={{ textAlign: "center", margin: 3, color: "white" }}
+        >
           Add Flight
         </Typography>
         <Button onClick={() => nav("/")} variant="contained">
@@ -156,6 +160,7 @@ function AddFlight() {
               variant="outlined"
               type="time"
               name="depTime"
+              value={flightDetails.depTime}
               sx={{ marginBottom: 5, width: 300 }}
               onChange={handleChange}
             />

@@ -23,20 +23,21 @@ function ViewBookings() {
   }, []);
 
   return (
-    <div>
+    <div className="view-container">
       <div className="header">
         <p></p>
-        <Typography sx={{ margin: 5, textAlign: "center" }} variant="h4">
+        <Typography sx={{ margin: 5, textAlign: "center",color: "white" }} variant="h4">
           Bookings
         </Typography>
         <Button variant="contained" onClick={() => nav("/")}>
           Home
         </Button>
       </div>
-
-      {users.map((user, index) => {
-        return <UserCard key={index} user={user}></UserCard>;
-      })}
+      <div className="cards">
+        {users.map((user, index) => {
+          return <UserCard key={index} user={user}></UserCard>;
+        })}
+      </div>
     </div>
   );
 }

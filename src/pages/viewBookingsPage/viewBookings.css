@@ -1,0 +1,11 @@
+.view-container {
+  overflow: hidden;
+  height: fit-content;
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+}
+
+.cards {
+  width: 40vw;
+  margin: auto;
+  margin-bottom: 500px;
+}

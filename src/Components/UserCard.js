@@ -13,7 +13,7 @@ function UserCard(props) {
   const nav = useNavigate();
   return (
     <div>
-      <Card sx={{ maxWidth: "100vw" }}>
+      <Card sx={{ maxWidth: "100vw", margin: 5 }}>
         <CardContent>
           <Typography
             sx={{ color: "#0b8f2c" }}
@@ -47,7 +47,7 @@ function UserCard(props) {
               {props.user.email}
             </Typography>
           </div>
-          </CardContent>
+        </CardContent>
       </Card>
     </div>
   );
