@@ -23,7 +23,6 @@ function AddFlight() {
     destination: null,
     cost: null,
   });
-  const [validate, setValidate] = useState();
 
   const [airline, setAirline] = useState(false);
   const [date, setDate] = useState(false);
@@ -43,6 +42,15 @@ function AddFlight() {
       const databaseRef = ref(fireBaseDataBase, `flights`);
       await push(databaseRef, { ...flightDetails, occupancy: 10 });
       alert("Flight Added");
+      setFlightDetails({
+        airline: "",
+        date: "",
+        depTime: "",
+        arrTime: "",
+        brdPoint: "",
+        destination: "",
+        cost: "",
+      });
     }
   };
 
@@ -70,6 +78,13 @@ function AddFlight() {
       setArrTime("Choose the arrival time");
     } else {
       setArrTime(true);
+    }
+    if (flightDetails.arrTime > flightDetails.depTime) {
+      setArrTime("Arrival Time should be lesser than departure time");
+      setDepTime("Departure time should be greater than arrival time");
+    } else {
+      setArrTime(true);
+      setDepTime(true);
     }
     if (!flightDetails.brdPoint) {
       setBrdPoint("Enter the boarding point");
@@ -117,6 +132,7 @@ function AddFlight() {
             id="demo-simple-select"
             label="Airline"
             name="airline"
+            value={flightDetails.airline}
             onChange={handleChange}
             sx={{ width: 600, margin: "auto ", marginBottom: 5 }}
           >
@@ -137,6 +153,7 @@ function AddFlight() {
             </InputLabel>
             {date && <p>{date}</p>}
             <TextField
+              value={flightDetails.date}
               InputProps={{
                 inputProps: {
                   min: new Date().toISOString().slice(0, 10),
@@ -174,6 +191,7 @@ function AddFlight() {
               id="outlined-basic"
               variant="outlined"
               name="arrTime"
+              value={flightDetails.arrTime}
               type="time"
               sx={{ marginBottom: 5, width: 300 }}
               onChange={handleChange}
@@ -187,6 +205,7 @@ function AddFlight() {
             <TextField
               id="outlined-basic"
               label="Boarding Point"
+              value={flightDetails.brdPoint}
               variant="outlined"
               name="brdPoint"
               sx={{ marginBottom: 5, width: 300 }}
@@ -202,6 +221,7 @@ function AddFlight() {
               id="outlined-basic"
               label="Destination"
               variant="outlined"
+              value={flightDetails.destination}
               name="destination"
               sx={{ marginBottom: 5, width: 300 }}
               onChange={handleChange}
@@ -217,6 +237,7 @@ function AddFlight() {
               id="outlined-basic"
               label="Cost"
               variant="outlined"
+              value={flightDetails.cost}
               name="cost"
               sx={{ marginBottom: 5, width: 300 }}
               onChange={handleChange}
