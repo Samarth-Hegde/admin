@@ -31,18 +31,23 @@ function AddFlight() {
   const [brdPoint, setBrdPoint] = useState(false);
   const [destination, setDestination] = useState(false);
   const [cost, setCost] = useState(false);
+  const [timeValidator, setTimeValidator] = useState(false);
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFlightDetails({ ...flightDetails, [name]: value });
   };
 
   const handleClick = async () => {
+    console.log(timeValidator);
     if (validate_from()) {
-      console.log(validate_from());
       const databaseRef = ref(fireBaseDataBase, `flights`);
       await push(databaseRef, { ...flightDetails, occupancy: 10 });
-      alert("Flight Added");
-      nav("/");
+      let navigator = window.confirm(
+        "Flight Added do you want to add another flight?"
+      );
+      if (!navigator) {
+        nav("/");
+      }
     }
   };
 
@@ -72,11 +77,10 @@ function AddFlight() {
       setArrTime(true);
     }
     if (flightDetails.arrTime > flightDetails.depTime) {
-      setArrTime("Arrival Time should be lesser than departure time");
-      setDepTime("Departure time should be greater than arrival time");
+      setTimeValidator("Arrival Time should be lesser than departure time");
+      flag = false;
     } else {
-      setArrTime(true);
-      setDepTime(true);
+      setTimeValidator(true);
     }
     if (!flightDetails.brdPoint) {
       setBrdPoint("Enter the boarding point");
@@ -164,6 +168,7 @@ function AddFlight() {
               Departure Time
             </InputLabel>
             {depTime && <p>{depTime}</p>}
+            {timeValidator && <p>{timeValidator}</p>}
             <TextField
               id="outlined-basic"
               variant="outlined"
@@ -179,6 +184,7 @@ function AddFlight() {
               Arrival time
             </InputLabel>
             {arrTime && <p>{arrTime}</p>}
+            {timeValidator && <p>{timeValidator}</p>}
             <TextField
               id="outlined-basic"
               variant="outlined"
