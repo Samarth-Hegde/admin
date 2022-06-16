@@ -42,15 +42,6 @@ function AddFlight() {
       const databaseRef = ref(fireBaseDataBase, `flights`);
       await push(databaseRef, { ...flightDetails, occupancy: 10 });
       alert("Flight Added");
-      setFlightDetails({
-        airline: "",
-        date: "",
-        depTime: "",
-        arrTime: "",
-        brdPoint: "",
-        destination: "",
-        cost: "",
-      });
     }
   };
 
