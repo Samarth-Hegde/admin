@@ -122,7 +122,11 @@ function AddFlight() {
       <div className="addFlight-container">
         <div className="dropdown">
           <InputLabel id="demo-simple-select-label">Airline</InputLabel>
-          {airline && <p>{airline}</p>}
+          {airline && (
+            <Typography sx={{ color: "red" }} variant="h6">
+              {airline}
+            </Typography>
+          )}
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
@@ -147,7 +151,11 @@ function AddFlight() {
             <InputLabel sx={{ marginBottom: 1 }} id="demo-simple-select-label">
               Date
             </InputLabel>
-            {date && <p>{date}</p>}
+            {date && (
+              <Typography sx={{ color: "red" }} variant="h6">
+                {date}
+              </Typography>
+            )}
             <TextField
               value={flightDetails.date}
               InputProps={{
@@ -167,7 +175,11 @@ function AddFlight() {
             <InputLabel sx={{ marginBottom: 1 }} id="demo-simple-select-label">
               Departure Time
             </InputLabel>
-            {depTime && <p>{depTime}</p>}
+            {depTime && (
+              <Typography sx={{ color: "red" }} variant="h6">
+                {depTime}
+              </Typography>
+            )}
             {timeValidator && <p>{timeValidator}</p>}
             <TextField
               id="outlined-basic"
@@ -183,8 +195,16 @@ function AddFlight() {
             <InputLabel sx={{ marginBottom: 1 }} id="demo-simple-select-label">
               Arrival time
             </InputLabel>
-            {arrTime && <p>{arrTime}</p>}
-            {timeValidator && <p>{timeValidator}</p>}
+            {arrTime && (
+              <Typography sx={{ color: "red" }} variant="h6">
+                {arrTime}
+              </Typography>
+            )}
+            {timeValidator && (
+              <Typography sx={{ color: "red" }} variant="h6">
+                {timeValidator}
+              </Typography>
+            )}
             <TextField
               id="outlined-basic"
               variant="outlined"
@@ -199,7 +219,11 @@ function AddFlight() {
             <InputLabel sx={{ marginBottom: 1 }} id="demo-simple-select-label">
               Boarding Point
             </InputLabel>
-            {brdPoint && <p>{brdPoint}</p>}
+            {brdPoint && (
+              <Typography sx={{ color: "red" }} variant="h6">
+                {brdPoint}
+              </Typography>
+            )}
             <TextField
               id="outlined-basic"
               label="Boarding Point"
@@ -214,7 +238,11 @@ function AddFlight() {
             <InputLabel sx={{ marginBottom: 1 }} id="demo-simple-select-label">
               Destination
             </InputLabel>
-            {destination && <p>{destination}</p>}
+            {destination && (
+              <Typography sx={{ color: "red" }} variant="h6">
+                {destination}
+              </Typography>
+            )}
             <TextField
               id="outlined-basic"
               label="Destination"
@@ -229,7 +257,11 @@ function AddFlight() {
             <InputLabel sx={{ marginBottom: 1 }} id="demo-simple-select-label">
               Cost
             </InputLabel>
-            {cost && <p>{cost}</p>}
+            {cost && (
+              <Typography sx={{ color: "red" }} variant="h6">
+                {cost}
+              </Typography>
+            )}
             <TextField
               type="number"
               id="outlined-basic"
