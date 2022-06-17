@@ -10,6 +10,7 @@ import { Button, Typography } from "@mui/material";
 function ViewBookings() {
   const [users, setUsers] = useState([]);
   const nav = useNavigate();
+  const [airLine,setAirline] = useState();
   const params = useParams();
   console.log(params.id);
   useEffect(() => {
@@ -20,6 +21,13 @@ function ViewBookings() {
     onValue(databaseRef, (snapshot) => {
       setUsers(Object.values(snapshot.val()));
     });
+    const airLineRef = ref(
+      fireBaseDataBase,
+      `flights/${params.id}/airline`
+    );
+    onValue(airLineRef, (snapshot) => {
+      setAirline(snapshot.val());
+    });
   }, []);
 
   return (
@@ -27,7 +35,7 @@ function ViewBookings() {
       <div className="header">
         <p></p>
         <Typography sx={{ margin: 5, textAlign: "center",color: "white" }} variant="h4">
-          Bookings
+          Bookings for {airLine}
         </Typography>
         <Button variant="contained" onClick={() => nav("/")}>
           Home

@@ -47,6 +47,14 @@ function UserCard(props) {
               {props.user.email}
             </Typography>
           </div>
+          <div className="sec">
+            <Typography sx={{ color: "rebeccapurple" }} variant="h5">
+              Number of tickets :
+            </Typography>
+            <Typography gutterBottom variant="h6" component="div">
+              {props.user.count}
+            </Typography>
+          </div>
         </CardContent>
       </Card>
     </div>
